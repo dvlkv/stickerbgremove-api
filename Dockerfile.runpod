@@ -1,12 +1,5 @@
 # Use NVIDIA CUDA base image with cuDNN (latest supported by PyTorch 2.7.1)
-FROM nvidia/cuda:12.8.0-cudnn-runtime-ubuntu22.04
-
-ENV DEBIAN_FRONTEND=noninteractive
-
-# Install system dependencies
-RUN apt-get update && apt-get install -y --no-install-recommends \
-    python3-pip python3-dev python3-opencv libglib2.0-0 libgl1 ffmpeg build-essential \
-    && rm -rf /var/lib/apt/lists/*
+FROM runpod/base:0.7.2-dev-noble-cuda12.9.0
 
 # Upgrade pip
 RUN python3 -m pip install --upgrade pip
