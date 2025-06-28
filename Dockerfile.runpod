@@ -24,6 +24,9 @@ RUN pip install onnxruntime-gpu==1.22.0
 # Install the rest of the dependencies, ignoring torch, torchvision, onnxruntime if present
 RUN pip install --no-cache-dir --ignore-installed torch --ignore-installed torchvision --ignore-installed onnxruntime -r requirements.txt
 
+RUN pip install gdown
+RUN gdown 1NBl44rAliWHgXvH75p-MsyVx_vnYuLPK
+
 # Copy the rest of the application code and the ONNX model
 COPY . .
 
