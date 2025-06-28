@@ -31,3 +31,4 @@ torchvision==0.22.1
 typing-inspection==0.4.1
 typing_extensions==4.14.0
 uvicorn==0.35.0
+runpod
