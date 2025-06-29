@@ -22,7 +22,7 @@ RUN pip install torch==2.7.1+cu128 torchvision==0.22.1+cu128 torchaudio --extra-
 RUN pip install --no-cache-dir --ignore-installed torch --ignore-installed torchvision --ignore-installed onnxruntime -r requirements.txt
 
 # Install ONNXRuntime with GPU support
-RUN pip uninstall onnxruntime onnxruntime-gpu
+RUN pip uninstall -y onnxruntime onnxruntime-gpu
 RUN pip install onnxruntime-gpu
 
 # Download the ONNX model
