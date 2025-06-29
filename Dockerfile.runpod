@@ -18,12 +18,14 @@ COPY requirements.txt ./
 # Install CUDA-enabled PyTorch, torchvision, torchaudio
 RUN pip install torch==2.7.1+cu128 torchvision==0.22.1+cu128 torchaudio --extra-index-url https://download.pytorch.org/whl/cu128
 
-# Install ONNXRuntime with GPU support
-RUN pip install onnxruntime-gpu==1.22.0
-
 # Install the rest of the dependencies, ignoring torch, torchvision, onnxruntime if present
 RUN pip install --no-cache-dir --ignore-installed torch --ignore-installed torchvision --ignore-installed onnxruntime -r requirements.txt
 
+# Install ONNXRuntime with GPU support
+RUN pip uninstall onnxruntime onnxruntime-gpu
+RUN pip install onnxruntime-gpu
+
+# Download the ONNX model
 RUN pip install gdown
 RUN gdown 1NBl44rAliWHgXvH75p-MsyVx_vnYuLPK
 
