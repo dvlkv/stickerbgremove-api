@@ -1,5 +1,5 @@
 # Use NVIDIA CUDA base image with cuDNN (latest supported by PyTorch 2.7.1)
-FROM nvidia/cuda:12.8.0-cudnn-runtime-ubuntu22.04
+FROM nvidia/cuda:12.8.0-cudnn-devel-ubuntu22.04
 
 ENV DEBIAN_FRONTEND=noninteractive
 
@@ -33,4 +33,4 @@ COPY . .
 EXPOSE 8000
 
 # CMD ["uvicorn", "api:app", "--host", "0.0.0.0", "--port", "8000"]
-CMD ["python", "-u", "runpod_worker.py"]
+CMD ["python3", "-u", "runpod_worker.py"]
